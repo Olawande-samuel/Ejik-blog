@@ -10,7 +10,7 @@ const data = [
 	{
 		id: 1,
 		title: "About Us",
-		link: "",
+		link: "https://ejik.vercel.app/about-us",
 		isDropdown: false,
 	},
 	{
@@ -28,13 +28,13 @@ const data = [
 	{
 		id: 4,
 		title: "Careers",
-		link: "",
+		link: "https://ejik.vercel.app/careers",
 		isDropdown: false,
 	},
 	{
 		id: 5,
 		title: "Contact Us",
-		link: "",
+		link: "https://ejik.vercel.app/contact-us",
 		isDropdown: false,
 	},
 ];
@@ -55,7 +55,9 @@ const Nav = () => {
 						<NavigationMenuItem key={item.id}>
 							<a
 								className="inline-block w-full rounded-md p-2 text-xs hover:bg-accent hover:text-black"
-								href="/"
+								href={item.link}
+								target="_blank"
+								rel="noreferrer"
 							>
 								{item.title}
 							</a>
