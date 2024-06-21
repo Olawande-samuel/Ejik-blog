@@ -1,0 +1,10 @@
+node_modules
+build
+dist
+public
+.next
+out
+*.html
+
+*.config.js
+*.config.ts
