@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import Container from "./Container";
 import Nav from "./Nav";
@@ -16,12 +17,14 @@ const Navbar = () => {
 				<Container>
 					<div className="flex items-center justify-between   py-2">
 						<div className="">
-							<Image
-								src="/images/logo.svg"
-								width={130}
-								height={40}
-								alt="logo"
-							/>
+							<Link href="/">
+								<Image
+									src="/images/logo.svg"
+									width={130}
+									height={40}
+									alt="logo"
+								/>
+							</Link>
 						</div>
 						<div className="hidden lg:block">
 							<Nav />
