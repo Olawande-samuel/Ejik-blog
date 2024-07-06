@@ -25,10 +25,10 @@ export default [
 	...tailwind.configs["flat/recommended"],
 	eslintPluginPrettier,
 	{
-		files: ["**/*.jsx", "**/*.tsx"],
 		languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } },
+		files: ["**/*.jsx", "**/*.tsx"],
 		rules: {
-			"@typescript-eslint/no-explicit-any": "off",
+			"@typescript-eslint/no-explicit-any": "warn",
 			"prettier/prettier": "error",
 			"react/react-in-jsx-scope": "off",
 			"react/jsx-uses-react": "off",

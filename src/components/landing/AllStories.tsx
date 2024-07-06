@@ -11,6 +11,8 @@ import Link from "next/link";
 import TitleText from "../TitleText";
 import NewsGrid from "./NewsGrid";
 import PharmacyHealthCare from "./PharmacyHealthCare";
+import { Suspense } from "react";
+import { Skeleton } from "../ui/skeleton";
 
 const AllStories = async () => {
 	const queryClient = new QueryClient();
@@ -27,10 +29,14 @@ const AllStories = async () => {
 					value="All our stories"
 					className="mb-14 font-medium text-primary"
 				/>
-				<Tabs />
+				<Suspense fallback={<Skeleton className="h-10 w-full" />}>
+					<Tabs />
+				</Suspense>
 				<HydrationBoundary state={dehydrate(queryClient)}>
 					<div className="mb-36 mt-20">
-						<NewsGrid />
+						<Suspense fallback={<p>Loading...</p>}>
+							<NewsGrid />
+						</Suspense>
 					</div>
 					<div>
 						<PharmacyHealthCare />

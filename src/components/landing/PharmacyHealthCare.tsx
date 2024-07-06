@@ -7,6 +7,7 @@ import TextH2 from "../TextH2";
 import CardWithOverlay from "./Card";
 import CardFull from "./CardFull";
 import GridLoader from "./GridLoader";
+
 const CONTENT_QUERY = `*["Pharmaceutical" in categories[]->.title || "Health Care" in categories[]->.title ]|order(_createdAt desc)[0...10] {	
 author-> {name, _id},
 mainImage {
