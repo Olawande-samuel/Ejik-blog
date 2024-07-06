@@ -1,46 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
+
+import { getContent } from "@/actions/actions";
+import { ALL_CATEGORIES } from "@/query";
+import SearchInput from "./SearchInput";
 import Tab from "./Tab";
-import { Input } from "./ui/input";
-import { Search } from "lucide-react";
 
 const data = [
-  {
-    id: 1,
-    title: "View All",
-  },
-  {
-    id: 2,
-    title: "Pharmaceuticals & Health Care",
-  },
-  {
-    id: 3,
-    title: "International Agencies",
-  },
-  {
-    id: 4,
-    title: "Engineering",
-  },
+	{
+		_id: "1",
+		title: "View All",
+	},
 ];
 
 const Tabs = () => {
-  const [selected, setSelected] = useState(1);
-  return (
-    <div className="flex flex-wrap gap-6">
-      {data.map((item) => {
-        const isSelected = item.id === selected;
-        return (
-          <Tab
-            {...item}
-            selected={isSelected}
-            onClick={() => setSelected(item.id)}
-            key={item.id}
-          />
-        );
-      })}
-      <Input placeholder="Search" Icon={Search} className="shadow-md" />
-    </div>
-  );
+	const router = useRouter();
+	const searchParams = useSearchParams();
+	const selected = searchParams.get("category");
+
+	const query = useQuery({
+		queryKey: ["get categories"],
+		queryFn: () => getContent(ALL_CATEGORIES),
+	});
+
+	return (
+		<div className="flex flex-wrap gap-6">
+			<Tab
+				{...data[0]}
+				selected={data[0].title.toLowerCase() === selected?.toLowerCase()}
+				onClick={() => router.push(`?category=${data[0].title}`)}
+				key={data[0]._id}
+			/>
+			{query?.data?.map((item: { title: string; _id: string }) => {
+				const isSelected = item.title.toLowerCase() === selected?.toLowerCase();
+				return (
+					<Tab
+						{...item}
+						selected={isSelected}
+						onClick={() => router.push(`?category=${item.title}`)}
+						key={item._id}
+					/>
+				);
+			})}
+			<SearchInput />
+		</div>
+	);
 };
 export default Tabs;

@@ -1,16 +1,11 @@
 import Image from "next/image";
 // import Navbar from "./Navbar";
 
-const Hero = () => {
+const Hero = ({ image }: { image: string }) => {
 	return (
-		<header className="relative flex h-screen items-center bg-cover bg-right bg-no-repeat bg-blend-multiply md:h-section-taller screen-980:h-section">
+		<header className="relative flex h-[70vh] items-center bg-cover bg-right bg-no-repeat bg-blend-multiply md:h-section-taller screen-980:h-section">
 			{/* <Navbar /> */}
-			<Image
-				src="/images/details.webp"
-				fill
-				alt="blog image"
-				className="object-cover"
-			/>
+			<Image src={image} fill alt="blog image" className="object-cover" />
 		</header>
 	);
 };

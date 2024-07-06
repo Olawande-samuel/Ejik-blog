@@ -41,7 +41,7 @@ const data = [
 
 const Nav = () => {
 	return (
-		<NavigationMenu className="text-white lg:text-black">
+		<NavigationMenu className="text-black">
 			<NavigationMenuList className="flex flex-col items-center gap-8 lg:flex-row">
 				{data.map((item) =>
 					item.isDropdown ? (

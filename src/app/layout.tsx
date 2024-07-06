@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import ReactQueryProvider from "@/Providers";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -19,9 +20,11 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={outfit.className}>
-				<Navbar />
-				{children}
-				<Footer />
+				<ReactQueryProvider>
+					<Navbar />
+					{children}
+					<Footer />
+				</ReactQueryProvider>
 			</body>
 		</html>
 	);

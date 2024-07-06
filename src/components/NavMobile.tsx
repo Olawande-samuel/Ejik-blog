@@ -9,10 +9,10 @@ const NavMobile = ({
 	setOpenNav: React.Dispatch<SetStateAction<boolean>>;
 }) => {
 	return (
-		<section className="fixed inset-0 flex h-full flex-col bg-accent lg:hidden">
+		<section className="fixed inset-0 isolate flex h-full flex-col bg-white/60 backdrop-blur-lg lg:hidden">
 			<div className="flex justify-center">
 				<X
-					className="text-center text-white"
+					className="text-center text-black"
 					size={60}
 					onClick={() => setOpenNav(false)}
 				/>
@@ -22,7 +22,7 @@ const NavMobile = ({
 					<Nav />
 				</div>
 				<div className="flex-1">
-					<NavSelect isLight />
+					<NavSelect isLight={false} />
 				</div>
 			</div>
 		</section>
