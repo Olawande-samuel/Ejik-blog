@@ -35,7 +35,7 @@ const NewsList = () => {
 	const router = useRouter();
 
 	const query = useQuery({
-		queryKey: ["fetch news posts", currentPage],
+		queryKey: ["fetch news posts", currentPage, selected],
 		queryFn:
 			selected === "View All" || selected === null
 				? () =>
