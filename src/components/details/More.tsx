@@ -3,7 +3,7 @@ import TextH2 from "../TextH2";
 import BiteSizeCard from "./BiteSizeCard";
 import { Post } from "@/lib/types";
 
-const CONTENT_QUERY = `*[_type == "post" && $id != slug.current] {
+const CONTENT_QUERY = `*[_type == "post" && $id != slug.current] | order(_createdAt desc)[0...4] {
 	author-> {name, _id},
 	mainImage {
 	asset-> {
