@@ -1,44 +1,59 @@
+import { Post } from "@/lib/types";
+import { calculateReadTime, formatDate } from "@/lib/utils";
 import { Calendar, Clock3 } from "lucide-react";
 import Image from "next/image";
-import Text from "../Text";
+import Link from "next/link";
+import PostBody from "../PortableText";
 import TextH2 from "../TextH2";
 import { Card, CardContent, CardHeader } from "../ui/card";
-import Link from "next/link";
+
+interface Props extends Post {
+	showInfo: boolean;
+}
 
 const CardFull = ({
-	image,
 	showInfo,
-}: {
-	image: string;
-	showInfo: boolean;
-}) => {
+	title,
+	slug,
+	_createdAt,
+	mainImage,
+	body,
+	author,
+}: Props) => {
 	return (
 		<Card className="flex h-full flex-col border-none shadow-none ">
-			<CardHeader className="relative h-[500px] p-0">
-				<Image src={image} alt={"title"} fill className="object-cover" />
+			<CardHeader className="relative h-[320px] p-0 sm:h-[500px]">
+				<Image
+					src={mainImage?.asset?.url}
+					alt={"title"}
+					fill
+					className="object-cover"
+				/>
 			</CardHeader>
-			<CardContent className="px-6 pt-8">
-				<div className="mb-8 flex gap-[77px]">
+			<CardContent className="px-4 pt-8 sm:px-6">
+				<div className="mb-8 flex flex-wrap gap-4 lg:gap-[77px]">
 					<span className="flex items-center gap-3 text-lg text-secondary">
-						<Calendar size={24} color="#EC1C24" /> April 14, 2024
+						<Calendar size={24} color="#EC1C24" />
+						{formatDate(_createdAt)}
 					</span>
 					<span className="flex items-center gap-3 text-lg text-secondary">
-						<Clock3 size={24} color="#EC1C24" /> April 14, 2024
+						<Clock3 size={24} color="#EC1C24" /> {calculateReadTime(body)}
 					</span>
 				</div>
-				<Link href="/1">
+				<Link href={`/${slug?.current}`}>
 					<TextH2
-						value="Medication Safety and Error Prevention"
-						className="mb-6 max-w-[90%] text-[33px] leading-10 tracking-normal text-primary "
+						value={title}
+						className="mb-1 max-w-[90%] leading-10 tracking-normal text-primary sm:mb-6 "
 					/>
 				</Link>
 				{showInfo && (
 					<>
-						<Text
-							className="mb-6 text-[#3A3C3E]"
-							value="Lorem ipsum dolor sit amet consectetur. Eu amet pellentesque porta felis. Fringilla semper sed id pellentesque. . Eu amet pellentesque porta felis. Fringilla semper sed id pellentesque.Eu amet pellentesque porta felis. Fringilla semper sed id pellentesque."
-						/>
-						<p className="text-lg font-bold text-secondary">Joshua Jackson</p>
+						<div className="blog_content mb-6 h-[95px] overflow-hidden text-ellipsis text-[#3A3C3E]">
+							<PostBody body={body} />
+						</div>
+						{author && (
+							<p className="text-lg font-bold text-secondary">{author?.name}</p>
+						)}
 					</>
 				)}
 			</CardContent>

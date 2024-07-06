@@ -12,7 +12,7 @@ import NavSelect from "./NavSelect";
 const Navbar = () => {
 	const [openNav, setOpenNav] = useState(false);
 	return (
-		<section className="absolute inset-x-0 top-0 z-30 bg-transparent ">
+		<section className="fixed inset-x-0 top-0 isolate z-30  bg-white/60 lg:backdrop-blur-sm">
 			<nav>
 				<Container>
 					<div className="flex items-center justify-between   py-2">

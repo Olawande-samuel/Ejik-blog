@@ -1,8 +1,7 @@
 import Container from "@/components/Container";
 import Text from "@/components/Text";
 import AllStories from "@/components/landing/AllStories";
-
-export default function Home() {
+export default async function Home() {
 	return (
 		<section className="mt-32">
 			<Container>
