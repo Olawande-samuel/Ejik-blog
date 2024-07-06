@@ -13,7 +13,7 @@ import {
 } from "@/query";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
 import SearchCard from "../search/SearchCard";
