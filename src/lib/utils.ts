@@ -3,6 +3,7 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { createClient } from "@sanity/client";
 import moment from "moment";
+import urlBuilder from "@sanity/image-url";
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -39,6 +40,18 @@ export function formatDate(date: string) {
 	return "";
 }
 
+export function imageUrlBuilder(image: string) {
+	if (image) {
+		const url = urlBuilder(client)
+			.image(image)
+			.width(1200)
+			.height(630)
+			.auto("format")
+			.url();
+		return url;
+	}
+	return null;
+}
 // export function postTransformer(post: any): Post {
 // 	if (post) {
 // 		return {
