@@ -1,5 +1,7 @@
 "use client";
 
+import urlBuilder from "@sanity/image-url";
+
 import Endpoints from "@/lib/API";
 import { Post } from "@/lib/types";
 import {
@@ -15,6 +17,7 @@ import Pagination from "../Pagination";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Skeleton } from "../ui/skeleton";
+import { client } from "@/lib/utils";
 
 const SearchContent = ({ searchParams }: { searchParams: { q: string } }) => {
 	let SEARCH_CONTENT_QUERY_TYPE: string = NEXT_SEARCH_CONTENT_QUERY;
@@ -59,6 +62,16 @@ const SearchContent = ({ searchParams }: { searchParams: { q: string } }) => {
 			SEARCH_CONTENT_QUERY_TYPE = NEXT_SEARCH_CONTENT_QUERY;
 		}
 		setCurrentPageNumber(page);
+	}
+	if (query?.data?.[0]?.mainImage.asset.url) {
+		console.log(
+			urlBuilder(client)
+				.image(query?.data?.[0]?.mainImage.asset.url)
+				.width(1200)
+				.height(630)
+				.auto("format")
+				.url(),
+		);
 	}
 	return (
 		<>

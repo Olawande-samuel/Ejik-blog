@@ -203,3 +203,24 @@ export const SEARCH_CONTENT_QUERY_COUNT = `count(*[_type == "post" && body[].chi
     title,
     }
 )`;
+export const CONTENT_DETAIL_QUERY = `*[_type == "post" && $id == slug.current] {
+	author-> {name, _id},
+	mainImage {
+	asset-> {
+	url,
+	assetId
+	}
+	},
+	slug,
+	title,
+	categories[]-> {
+	_id,
+	title
+	},
+	_id,
+	body[] {..., asset-> {
+        url, _id
+      }},
+	_createdAt
+  }[0]
+  `;
