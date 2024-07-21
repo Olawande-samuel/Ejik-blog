@@ -17,7 +17,7 @@ const CardFull = ({
 	slug,
 	_createdAt,
 	mainImage,
-	body,
+	content,
 	author,
 }: Props) => {
 	return (
@@ -37,7 +37,7 @@ const CardFull = ({
 						{formatDate(_createdAt)}
 					</span>
 					<span className="flex items-center gap-3 text-lg text-secondary">
-						<Clock3 size={24} color="#EC1C24" /> {calculateReadTime(body)}
+						<Clock3 size={24} color="#EC1C24" /> {calculateReadTime(content)}
 					</span>
 				</div>
 				<Link href={`/${slug?.current}`}>
@@ -49,7 +49,7 @@ const CardFull = ({
 				{showInfo && (
 					<>
 						<div className="blog_content mb-6 h-[95px] overflow-hidden text-ellipsis text-[#3A3C3E]">
-							<PostBody body={body} />
+							<PostBody body={content} />
 						</div>
 						{author && (
 							<p className="text-lg font-bold text-secondary">{author?.name}</p>

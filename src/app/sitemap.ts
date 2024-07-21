@@ -17,7 +17,7 @@ const ALL_POSTS_QUERY = `*[_type == "post"]|order(_createdAt desc) {
 	title
 	},
 	_id,
-	body[] {..., asset-> {
+	content[] {..., asset-> {
         url, _id
       }},
 	_createdAt

@@ -23,7 +23,7 @@ _id,
 title
 },
 _id,
-body,
+content,
 _createdAt
 }
   `;

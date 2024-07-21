@@ -7,14 +7,14 @@ import PostBody from "../PortableText";
 import TextH2 from "../TextH2";
 import { Badge } from "../ui/badge";
 
-const Main = ({ body, title, _createdAt, categories }: Post) => {
+const Main = ({ content, title, _createdAt, categories }: Post) => {
 	return (
 		<div className="mt-12">
 			<Container>
 				<div>
 					<div className="mb-8 flex gap-[77px] text-secondary">
 						<span className="flex items-center gap-3 text-xs">
-							<Clock3 size={16} color="#009BDB" /> {calculateReadTime(body)}
+							<Clock3 size={16} color="#009BDB" /> {calculateReadTime(content)}
 						</span>
 						<span className="flex items-center gap-3 text-xs">
 							<Calendar size={16} color="#009BDB" />{" "}
@@ -38,7 +38,7 @@ const Main = ({ body, title, _createdAt, categories }: Post) => {
 						/>
 					</div>
 					<div className="blog_content mb-8">
-						<PostBody body={body} />
+						<PostBody body={content} />
 					</div>
 				</div>
 			</Container>

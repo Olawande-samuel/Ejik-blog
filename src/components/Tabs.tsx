@@ -31,7 +31,7 @@ const Tabs = () => {
 				{...data[0]}
 				selected={data[0].title.toLowerCase() === selected?.toLowerCase()}
 				onClick={() => router.push(`?category=${data[0].title}`)}
-				key={data[0]._id}
+				key="view all"
 			/>
 			{query?.data?.map((item: { title: string; _id: string }) => {
 				const isSelected = item.title.toLowerCase() === selected?.toLowerCase();

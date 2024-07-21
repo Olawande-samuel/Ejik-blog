@@ -18,5 +18,5 @@ export interface Post {
 	}[];
 	_createdAt: string;
 	_id: string;
-	body: any[];
+	content: any[];
 }
