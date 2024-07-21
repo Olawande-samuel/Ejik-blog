@@ -22,7 +22,7 @@ const CardWithOverlay = ({
 	title,
 	author,
 	_createdAt,
-	body,
+	content,
 }: Props) => {
 	return (
 		<Link href={`/${slug?.current}`} className="h-full min-h-[300px]">
@@ -55,7 +55,7 @@ const CardWithOverlay = ({
 									<div className="flex gap-[77px] text-white">
 										<span className="flex items-center gap-3 text-xs">
 											<Clock3 size={16} color="#FFF" />{" "}
-											{calculateReadTime(body)}
+											{calculateReadTime(content)}
 										</span>
 										<span className="flex items-center gap-3 text-xs">
 											<Calendar size={16} color="#FFF" />{" "}

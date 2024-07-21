@@ -13,7 +13,7 @@ export const ALL_POSTS_QUERY_BY_ID_IN_CATEGORIES = `*[_type == "post" && $_id in
     title
     },
     _id,
-    body[] {..., asset-> {
+    content[] {..., asset-> {
     url, _id
   }},
     _createdAt
@@ -39,7 +39,7 @@ export const ALL_POSTS_QUERY = `*[_type == "post"]|order(_createdAt desc)[0...10
 	title
 	},
 	_id,
-	body[] {..., asset-> {
+	content[] {..., asset-> {
         url, _id
       }},
 	_createdAt
@@ -68,7 +68,7 @@ export const PREV_POSTS_QUERY = `*[_type == "post"&& _createdAt > $last_post_cre
 	title
 	},
 	_id,
-	body[] {..., asset-> {
+	content[] {..., asset-> {
         url, _id
       }},
 	_createdAt
@@ -89,7 +89,7 @@ export const NEXT_POSTS_QUERY = `*[_type == "post"&& _createdAt < $last_post_cre
 	title
 	},
 	_id,
-	body[] {..., asset-> {
+	content[] {..., asset-> {
         url, _id
       }},
 	_createdAt
@@ -110,7 +110,7 @@ export const PREV_POSTS_QUERY_WITH_CATEGORY_ID = `*[_type == "post" && $_id in c
 	title
 	},
 	_id,
-	body[] {..., asset-> {
+	content[] {..., asset-> {
         url, _id
       }},
 	_createdAt
@@ -131,14 +131,14 @@ export const NEXT_POSTS_QUERY_WITH_CATEGORY_ID = `*[_type == "post" && $_id in c
 	title
 	},
 	_id,
-	body[] {..., asset-> {
+	content[] {..., asset-> {
         url, _id
       }},
 	_createdAt
   }
   `;
 
-export const SEARCH_CONTENT_QUERY = `*[_type == "post" && body[].children[].text match $q || title match $q ] | order(_createdAt desc)[0...10] {
+export const SEARCH_CONTENT_QUERY = `*[_type == "post" && content[].children[].text match $q || title match $q ] | order(_createdAt desc)[0...10] {
     author-> {name},
     mainImage {
         asset-> {
@@ -152,13 +152,13 @@ export const SEARCH_CONTENT_QUERY = `*[_type == "post" && body[].children[].text
         title
     },
     _id,
-    body[] {..., asset-> {
+    content[] {..., asset-> {
     url, _id
   }},
     _createdAt
     }
   `;
-export const PREV_SEARCH_CONTENT_QUERY = `*[_type == "post" && (body[].children[].text match $q || title match $q) && _createdAt > $last_post_createdAt ] | order(_createdAt desc)[0...10] {
+export const PREV_SEARCH_CONTENT_QUERY = `*[_type == "post" && (content[].children[].text match $q || title match $q) && _createdAt > $last_post_createdAt ] | order(_createdAt desc)[0...10] {
     author-> {name},
     mainImage {
         asset-> {
@@ -172,13 +172,13 @@ export const PREV_SEARCH_CONTENT_QUERY = `*[_type == "post" && (body[].children[
         title
     },
     _id,
-    body[] {..., asset-> {
+    content[] {..., asset-> {
     url, _id
   }},
     _createdAt
     }
   `;
-export const NEXT_SEARCH_CONTENT_QUERY = `*[_type == "post" && (body[].children[].text match $q || title match $q) && _createdAt < $last_post_createdAt ] | order(_createdAt desc)[0...10] {
+export const NEXT_SEARCH_CONTENT_QUERY = `*[_type == "post" && (content[].children[].text match $q || title match $q) && _createdAt < $last_post_createdAt ] | order(_createdAt desc)[0...10] {
     author-> {name},
     mainImage {
         asset-> {
@@ -192,13 +192,13 @@ export const NEXT_SEARCH_CONTENT_QUERY = `*[_type == "post" && (body[].children[
         title
     },
     _id,
-    body[] {..., asset-> {
+    content[] {..., asset-> {
     url, _id
   }},
     _createdAt
     }
   `;
-export const SEARCH_CONTENT_QUERY_COUNT = `count(*[_type == "post" && body[].children[].text match $q || title match $q ] {
+export const SEARCH_CONTENT_QUERY_COUNT = `count(*[_type == "post" && content[].children[].text match $q || title match $q ] {
     slug,
     title,
     }
@@ -218,7 +218,7 @@ export const CONTENT_DETAIL_QUERY = `*[_type == "post" && $id == slug.current] {
 	title
 	},
 	_id,
-	body[] {..., asset-> {
+	content[] {..., asset-> {
         url, _id
       }},
 	_createdAt

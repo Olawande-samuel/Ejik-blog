@@ -34,7 +34,7 @@ const NewsGrid = () => {
 								<CardFull
 									_createdAt={post?._createdAt}
 									_id={post?._id}
-									body={post?.body}
+									content={post?.content}
 									mainImage={post?.mainImage}
 									slug={post?.slug}
 									title={post?.title}
