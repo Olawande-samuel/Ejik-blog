@@ -16,7 +16,9 @@ function makeQueryClient() {
 		},
 	});
 }
+
 let browserQueryClient: QueryClient | undefined = undefined;
+
 function getQueryClient() {
 	if (isServer) {
 		return makeQueryClient();
@@ -25,6 +27,7 @@ function getQueryClient() {
 		return browserQueryClient;
 	}
 }
+
 const ReactQueryProvider = ({ children }: { children: React.ReactNode }) => {
 	const queryClient = getQueryClient();
 	return (

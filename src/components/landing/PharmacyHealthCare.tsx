@@ -3,7 +3,7 @@
 import Endpoints from "@/lib/API";
 import { Post } from "@/lib/types";
 import { useQuery } from "@tanstack/react-query";
-import TextH2 from "../TextH2";
+import TitleText from "../TitleText";
 import CardWithOverlay from "./Card";
 import CardFull from "./CardFull";
 import GridLoader from "./GridLoader";
@@ -43,7 +43,10 @@ const PharmacyHealthCare = () => {
 			) : (
 				<section>
 					<div className="mb-10">
-						<TextH2 value="Pharmacy & Health Care" className="text-primary" />
+						<TitleText
+							value="Pharmacy & Health Care"
+							className="font-medium text-primary"
+						/>
 					</div>
 					<div className="flex flex-col gap-9 lg:flex-row">
 						<section className="lg:basis-[65%]">

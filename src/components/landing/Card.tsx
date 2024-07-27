@@ -47,7 +47,7 @@ const CardWithOverlay = ({
 								))}
 							</div>
 							<div className="mt-auto flex flex-1 flex-col justify-end">
-								<TextH2 value={title} className="text-4xl" />
+								<TextH2 value={title} className="line-clamp-4 text-4xl" />
 								<div className="flex flex-wrap items-end justify-between gap-4">
 									{author && (
 										<Text className={textClassName} value={author.name} />
