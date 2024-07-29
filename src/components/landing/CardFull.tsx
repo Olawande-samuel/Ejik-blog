@@ -25,25 +25,25 @@ const CardFull = ({
 			<CardHeader className="relative h-[320px] p-0 sm:h-[500px]">
 				<Image
 					src={mainImage?.asset?.url}
-					alt={"title"}
+					alt={title}
 					fill
 					className="object-cover"
 				/>
 			</CardHeader>
 			<CardContent className="px-4 pt-8 sm:px-6">
-				<div className="mb-8 flex flex-wrap gap-4 lg:gap-[77px]">
-					<span className="flex items-center gap-3 text-lg text-secondary">
-						<Calendar size={24} color="#EC1C24" />
+				<div className="mb-8 flex flex-wrap gap-4 lg:gap-[70px]">
+					<span className="flex items-center gap-2 text-sm text-secondary sm:text-base">
+						<Calendar size={18} color="#EC1C24" />
 						{formatDate(_createdAt)}
 					</span>
-					<span className="flex items-center gap-3 text-lg text-secondary">
-						<Clock3 size={24} color="#EC1C24" /> {calculateReadTime(content)}
+					<span className="flex items-center gap-2 text-sm text-secondary sm:text-base">
+						<Clock3 size={18} color="#EC1C24" /> {calculateReadTime(content)}
 					</span>
 				</div>
 				<Link href={`/${slug?.current}`}>
 					<TextH2
 						value={title}
-						className="mb-1 max-w-[90%] leading-10 tracking-normal text-primary sm:mb-6 "
+						className="mb-1 max-w-[90%] text-2xl leading-10 tracking-normal text-primary sm:mb-0 sm:text-2xl"
 					/>
 				</Link>
 				{showInfo && (
