@@ -13,18 +13,23 @@ export default async function OpenGraphImage() {
 		(
 			<div
 				style={{
-					fontSize: 128,
-					background: "#eee",
-					width: "100%",
 					height: "100%",
+					width: "100%",
 					display: "flex",
-					textAlign: "center",
+					flexDirection: "column",
 					alignItems: "center",
 					justifyContent: "center",
-					color: "#EC1C24",
+					backgroundColor: "#EC1C24",
+					fontSize: 32,
+					fontWeight: 600,
 				}}
 			>
-				<p className="text-accent">Ejik News and Stories</p>
+				<img
+					src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}/images/logo-white.svg`}
+				/>
+				<div style={{ marginTop: 40, color: "#fff" }}>
+					Ejik News and Stories
+				</div>
 			</div>
 		),
 		{
