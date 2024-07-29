@@ -27,9 +27,6 @@ export default async function OpenGraphImage() {
 				<img
 					src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}/images/logo-white.svg`}
 				/>
-				<div style={{ marginTop: 40, color: "#fff" }}>
-					Ejik News and Stories
-				</div>
 			</div>
 		),
 		{
