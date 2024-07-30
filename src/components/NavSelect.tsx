@@ -8,19 +8,19 @@ const NavSelect = ({ isLight }: { isLight: boolean }) => {
 
 	useEffect(() => {
 		if (value === "1") {
-			window.open("https://ejik.vercel.app/", "_blank");
+			window.open(process.env.NEXT_PUBLIC_MAIN_WEBSITE_URL, "_blank");
 		}
 		if (value === "2") {
-			window.open("https://ejik-pharmacy.vercel.app/", "_blank");
+			window.open(process.env.NEXT_PUBLIC_PHARMACY_WEBSITE_URL, "_blank");
 		}
 		if (value === "3") {
-			window.open("https://ejik-international.vercel.app/", "_blank");
+			window.open(process.env.NEXT_PUBLIC_INTERNATIONAL_WEBSITE_URL, "_blank");
 		}
 	}, [value]);
 	return (
 		<div
 			className={cn(
-				"rounded-md border-[0.52px] border-white px-4",
+				"rounded-md border-[0.52px] mb-4 lg:mb-0 border-white px-0 lg:px-4",
 				isLight && "border-white lg:border-primary",
 			)}
 		>

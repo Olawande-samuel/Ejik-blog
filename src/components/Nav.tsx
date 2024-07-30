@@ -41,12 +41,12 @@ const data = [
 
 const Nav = () => {
 	return (
-		<NavigationMenu className="text-black">
-			<NavigationMenuList className="flex flex-col items-center gap-8 lg:flex-row">
+		<NavigationMenu className="text-white">
+			<NavigationMenuList className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:gap-8">
 				{data.map((item) =>
 					item.isDropdown ? (
 						<NavigationMenuItem key={item.id}>
-							<NavigationMenuTrigger className="h-fit bg-transparent p-2 text-5xl font-normal hover:bg-accent lg:text-xs">
+							<NavigationMenuTrigger className="h-fit bg-transparent p-2 text-base font-normal hover:bg-accent lg:text-xs">
 								{item.title}
 							</NavigationMenuTrigger>
 							<NavigationMenuContent></NavigationMenuContent>
@@ -54,7 +54,7 @@ const Nav = () => {
 					) : (
 						<NavigationMenuItem key={item.id}>
 							<a
-								className="inline-block w-full rounded-md p-2 text-5xl hover:bg-accent hover:text-black lg:text-xs"
+								className="inline-block w-full rounded-md p-2 text-base hover:bg-accent hover:text-black lg:text-xs"
 								href={item.link}
 								target="_blank"
 								rel="noreferrer"
