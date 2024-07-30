@@ -37,25 +37,13 @@ const NavSelect = ({ isLight }: { isLight: boolean }) => {
 				<option className="text-center text-red-900" value="1">
 					Chris Ejik Groups
 				</option>
-				<option
-					// href="https://ejik-pharmacy.vercel.app/"
-					className="text-center text-red-900"
-					value="2"
-				>
+				<option className="text-center text-red-900" value="2">
 					Chris Ejik Pharmaceuticals
 				</option>
-				<option
-					className="text-center text-red-900"
-					value="3"
-					// href="https://ejik-international.vercel.app/"
-				>
+				<option className="text-center text-red-900" value="3">
 					Chris Ejik International
 				</option>
-				<option
-					value="4"
-					className="text-center text-red-900"
-					// href="https://ejik-pharmacy.vercel.app/"
-				>
+				<option value="4" className="text-center text-red-900">
 					Chris Ejik Engineering
 				</option>
 			</select>
