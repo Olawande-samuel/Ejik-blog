@@ -30,7 +30,7 @@ const NavSelect = ({ isLight }: { isLight: boolean }) => {
 				}
 				value={value}
 				className={cn(
-					"rounded-none border-0 bg-transparent text-xs text-white focus:ring-0 focus-visible:outline-none",
+					"rounded-none border-0 bg-transparent text-base lg:text-xs text-white focus:ring-0 focus-visible:outline-none",
 					isLight && "lg:text-primary lg:border-primary",
 				)}
 			>
