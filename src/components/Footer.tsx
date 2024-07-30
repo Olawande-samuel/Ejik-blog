@@ -25,8 +25,18 @@ const Footer = () => {
 						<li>Impact stories</li>
 					</ul>
 					<ul className="space-y-1 text-sm">
-						<li>Careers</li>
-						<li>Contact Us</li>
+						<li>
+							<a href={process.env.NEXT_PUBLIC_MAIN_WEBSITE_URL + "/careers"}>
+								Careers
+							</a>
+						</li>
+						<li>
+							<a
+								href={process.env.NEXT_PUBLIC_MAIN_WEBSITE_URL + "/contact-us"}
+							>
+								Contact Us
+							</a>
+						</li>
 					</ul>
 					<ul className="space-y-1 text-sm">
 						<li>Privacy Policy</li>
