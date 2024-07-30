@@ -10,7 +10,7 @@ const data = [
 	{
 		id: 1,
 		title: "About Us",
-		link: "https://ejik.vercel.app/about-us",
+		link: process.env.NEXT_PUBLIC_MAIN_WEBSITE_URL + "/about-us",
 		isDropdown: false,
 	},
 	{
@@ -28,13 +28,13 @@ const data = [
 	{
 		id: 4,
 		title: "Careers",
-		link: "https://ejik.vercel.app/careers",
+		link: process.env.NEXT_PUBLIC_MAIN_WEBSITE_URL + "/careers",
 		isDropdown: false,
 	},
 	{
 		id: 5,
 		title: "Contact Us",
-		link: "https://ejik.vercel.app/contact-us",
+		link: process.env.NEXT_PUBLIC_MAIN_WEBSITE_URL + "/contact-us",
 		isDropdown: false,
 	},
 ];
